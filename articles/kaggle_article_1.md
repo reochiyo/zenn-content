@@ -4,6 +4,7 @@ emoji: "👾"
 type: "tech" # tech: 技術記事 / idea: アイデア
 topics: ["kaggle", "python", "ai"]
 published: true
+publication_name: "team_delta"
 ---
 ## はじめに
 どうも、都内の大学で情報系の学科を専攻している千代丸と申します。
