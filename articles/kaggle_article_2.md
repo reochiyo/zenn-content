@@ -145,15 +145,11 @@ Titanicに乗船した乗客の情報は入っていますが、予測対象で�
 
 ![](/images/kaggle_article_2/image17.png)
 
-欠損値を適当な文字などに置き換えて、それらを数値に変換します(どんな値で補完するかによっても結果は変わってくる)。
-
 テストデータはSurvivedがないため、欠損値としてカウントされています。
 
-以下の例はEmbarked変数である、SとCとQという港のイニシャルを0、1、２に置き換えている様子です（One-Hotエンコーディング）。
+欠損値を適当な文字などに置き換えて、それらを数値に変換します(どんな値で補完するかによっても結果は変わってきます)。
 
-![](/images/kaggle_article_2/image18.png)
-
-ここまできたら影響の少ない特徴量は一旦削除する。
+また、ここまできたら影響の少ない特徴量は一旦削除します。
 
 ![](/images/kaggle_article_2/image18.png)
 
@@ -220,11 +216,15 @@ list上に結果が返されていることがわかります。
 
 map関数でlistのそれぞれのデータをint型に変換後、最終的にcsvファイルに出力します(index番号は出力しないためFalse)。
 
+Outputにcsvファイルが作成できていることが確認できました。
+
+![](/images/kaggle_article_2/image26.png)
+
 ここまで作業が済んだら、書いたコードをcommitします。
 
 右上のSave Versionというボタンをクリックして、versionを指定して記載したのち、commitボタンを押し、saveします。
 
-![](/images/kaggle_article_2/image26.png)
+![](/images/kaggle_article_2/image27.png)
 
 最後にcompleteと出ればcommitが完了です。
 
@@ -232,9 +232,9 @@ map関数でlistのそれぞれのデータをint型に変換後、最終的にc
 
 提出後はスコアを確認できます。
 
-![](/images/kaggle_article_2/image27.png)
+![](/images/kaggle_article_2/image28.png)
 
-私の正答率は約割だったようです。
+私の正答率は約7.7割だったようです。
 
 今回はテストデータの予測を行いましたが、主催者はそのテストデータの答えを持っているので、そのデータと照らし合わせてテストの答えの割合がわかるという感じです。
 
