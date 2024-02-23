@@ -3,7 +3,7 @@ title: "【Kaggle】実践！Titanicコンペティション"
 emoji: "🚢"
 type: "tech" # tech: 技術記事 / idea: アイデア
 topics: ["kaggle", "python", "ai"]
-published: false
+published: true
 publication_name: "team_delta"
 ---
 ## はじめに
