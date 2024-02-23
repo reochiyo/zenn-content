@@ -9,7 +9,7 @@ publication_name: "team_delta"
 ## はじめに
 Kaggleのアカウントを発行して間もないですが、早速Kaggleでモデルを構築したい気持ちが抑えきれないので、Competitionにチャレンジしてみました。
 
-とは言っても、モデルを構築するにあたって右も左もわからない私みたいな人はどうすればいいのって話です。
+とは言っても、モデルを構築するにはどうすればいいのっていう話です。
 
 実はKaggleには、このようにレベルに応じたチュートリアルのCompetitionが用意されているんです！
 
@@ -19,10 +19,10 @@ Kaggleのアカウントを発行して間もないですが、早速Kaggleで�
 
 ![](/images/kaggle_article_2/image2.png)
 
-その中でも一番端にある、参加Team数が一番多いTitanicを選びました。
+その中でも一番左端にある、参加Team数が一番多いTitanicを選びました。
 
 ## Notebook
-実際に開発に入る前に覚えていたら便利な用語があります。
+実際に開発に入る前に覚えているといい、便利な用語があります。
 
 それがNotebook（呼び方：ノートブック）です。
 
@@ -34,14 +34,14 @@ Kaggleのアカウントを発行して間もないですが、早速Kaggleで�
 
 コンペからでなくてもNotebookを作成することも可能です。
 
-以下がTitaninコンペでNotebookを初めて開いた時のイメージです。
+以下がTitanicコンペでNotebookを初めて開いた時のイメージです。
 
 ![](/images/kaggle_article_2/image4.png)
 
 勝手に書いたNotebookは自動保存される仕組みですが、手動で保存も可能です。
 
-## モデル作成の流れ
-以下では、実際にTitinicコンペでのモデルの作成の流れを記述していきます。
+## モデル作成
+以下では、実際にTitinicコンペでのモデル作成の流れを記述していきます。
 
 ### 1. パッケージやライブラリをインポート
 まず、配列の数値演算を行うnumpy、データフレームによるデータ加工を行うpandas、グラフを描写するmatplotlibとその拡張ライブラリであるseabornをimportします。
@@ -52,12 +52,12 @@ Kaggleのアカウントを発行して間もないですが、早速Kaggleで�
 
 ![](/images/kaggle_article_2/image6.png)
 
-ちなみにNotebookでの開発はGoogle ColabやJupyter Notebookと同様のセルコーディングです（今回は説明を省きますね。＊[参考](https://qiita.com/hinastory/items/e179361ae806e8776c70)）。
+ちなみにNotebookでの開発はGoogle ColabやJupyter Notebookと同様のセルコーディングです（＊[参考](https://qiita.com/hinastory/items/e179361ae806e8776c70)）。
 
 ### 2. 教師データを読み込む
 事前に用意されている（TitanicコンペからNotebookを開いたらすでに書かれている）、３つのcsvファイルをpandasを用いて読み込みます。
 
-![](/images/kaggle_article_2/image6.png)
+![](/images/kaggle_article_2/image7.png)
 
 ### 3. 探索的データ分析（EDA）
 予測度が高いモデルを作成するためには、データの特徴を読み取って、適切なアルゴリズムを当てはめることが大切です。
@@ -76,32 +76,32 @@ Titanicに乗船した乗客の情報は入っていますが、予測対象で�
 
 今回は以下のように、各乗客idと生存したか否かをまとめたファイルにしてくださいということです。
 
-![](/images/kaggle_article_2/image7.png)
+![](/images/kaggle_article_2/image8.png)
 
 #### ・describe
 また、以下はdescribe関数を用いて主要な統計指標を確認している様子です。
 
-![](/images/kaggle_article_2/image8.png)
-
-#### ・pandas_profiling
-次にpandas_profilingというライブラリも、よく使うライブラリです。
-
-使用するにはimportします。
-
 ![](/images/kaggle_article_2/image9.png)
 
-実行の際は、pandas_profilingのprofile_report()関数を用います。
+ちなみにmeanは平均値、stdは標準偏差（データのばらつきの度合い）を表しています。
+
+#### ・ydata_profiling（pandas_profiling）
+次にydata_profiling（かつてはpandas_profiling）というライブラリは、データをざっと確認するのによく使うライブラリです。
+
+使用するにはimportし、実行の際は、ydata_profilingのprofile_report()関数を用います。
 
 ![](/images/kaggle_article_2/image10.png)
 
-以下が実行結果です。
+以下が実行結果の一部です。
 
 ![](/images/kaggle_article_2/image11.png)
 
-ちょっと読みづらい・わかりずらいとこだけの用語説明：
 - Overview : 全体の概要
     - Dataset statistics : データの構造を表すもの
     - Variable types : 変数の型
+
+![](/images/kaggle_article_2/image12.png)
+
 - Variables : 列ごとの詳細な情報の確認
     - unifrom : 値が一様であること
     - unique : 値の重複を許してないこと
@@ -110,12 +110,14 @@ Titanicに乗船した乗客の情報は入っていますが、予測対象で�
     - Parch : 親子の数
     - Embarked : 停まった港の名前
 
+このほかにもデータの概要が出力されています。
+
 ### 4. 特徴的エンジニアリング
 今回は目的変数＝Survived(生きたか死んだかの値)とし、各特徴量とのヒストグラムを作ります。
 
 以下は、横軸をPclass(乗客の部屋のランクを表す変数)とし、ヒストグラムを作った例です。
 
-![](/images/kaggle_article_2/image12.png)
+![](/images/kaggle_article_2/image13.png)
 
 部屋のランクが低い３等客室の人の死亡率が高いことがわかります。
 
@@ -127,27 +129,29 @@ Titanicに乗船した乗客の情報は入っていますが、予測対象で�
 
 （カスタマイズ前）
 
-![](/images/kaggle_article_2/image13.png)
+![](/images/kaggle_article_2/image14.png)
 
 （カスタマイズ後）
 
-![](/images/kaggle_article_2/image14.png)
+![](/images/kaggle_article_2/image15.png)
 
 最終的にデータを分析した結果からアルゴリズムを適応させる、特徴的エンジニアリングを行います。
 
 教師データとテストデータの双方にエンジニアリングを行うことから、一旦一つに結合します。
 
-![](/images/kaggle_article_2/image15.png)
+![](/images/kaggle_article_2/image16.png)
 
 次に、欠損値（値がnullなど）の数をisnull()関数を用いて確認します。
 
-![](/images/kaggle_article_2/image16.png)
+![](/images/kaggle_article_2/image17.png)
 
 欠損値を適当な文字などに置き換えて、それらを数値に変換します(どんな値で補完するかによっても結果は変わってくる)。
 
+テストデータはSurvivedがないため、欠損値としてカウントされています。
+
 以下の例はEmbarked変数である、SとCとQという港のイニシャルを0、1、２に置き換えている様子です（One-Hotエンコーディング）。
 
-![](/images/kaggle_article_2/image17.png)
+![](/images/kaggle_article_2/image18.png)
 
 ここまできたら影響の少ない特徴量は一旦削除する。
 
