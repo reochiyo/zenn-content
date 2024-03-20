@@ -1,5 +1,5 @@
 ---
-title: "【Kaggle】"
+title: "【Kaggle】モデルの精度向上"
 emoji: "⛳"
 type: "tech" # tech: 技術記事 / idea: アイデア
 topics: ["kaggle", "python", "ai"]
