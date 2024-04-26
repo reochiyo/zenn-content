@@ -1,0 +1,21 @@
+title: "ECS(Fargate)を使った本番環境開発事例"
+summary: "ECS(Fargate)を使用した本番環境の開発事例をご紹介いたします。初めて本番環境を構築する人やとにかく本番環境で動くものを作りたいという人におすすめです。"
+topics: ['ecs', 'fargate', 's3', 'githubactions', 'aws']
+published: false
+price: 0 # 有料の場合200〜5000
+# 本に含めるチャプターを順番に並べましょう
+chapters:
+  - introduction
+  - iam
+  - vpc
+  - vpc_security_group
+  - vpc_endpoint
+  - s3
+  - ecr
+  - ci_cd
+  - ecs
+  - alb
+  - rds
+  - route53_acm
+  - cloudfront
+  - summary
