@@ -3,7 +3,7 @@ title: "【PHPUnit】dataProviderで日時を扱う処理で沼ったこと"
 emoji: "🎃"
 type: "tech"
 topics: ["PHP", "PHPUnit"]
-published: false
+published: true
 ---
 ## はじめに
 TestCaseを継承しているテストコードで、dataProviderを用いている時にsetUpメソッドで現在時刻を固定したのに処理がうまくいかなかった時の対処法です。
@@ -64,7 +64,7 @@ class HogeTest extends TestCase
 ```
 
 
-## デバックしてみた
+## デバッグしてみた
 ```php
 <?php
 
@@ -116,7 +116,7 @@ dataProvider内の時刻:2024-10-25 10:00:19
 テストメソッド内の時刻:2024-01-01 00:00:00
 ```
 
-デバックしてわかるように、dataProviderの中で現在時刻が固定できていないみたいです。
+デバッグしてわかるように、dataProviderの中で現在時刻が固定できていないみたいです。
 上記のテストで「与えられた日時が未来の時falseになる」の項目だけ通って、「与えられた日時が過去の時trueになる」の項目は落ちるロジックがこれで説明できます。
 
 ## 原因
