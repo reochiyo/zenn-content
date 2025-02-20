@@ -4,6 +4,7 @@ emoji: "🎃"
 type: "tech"
 topics: ["PHP", "PHPUnit"]
 published: true
+publication_name: "team_delta"
 ---
 ## はじめに
 TestCaseを継承しているテストコードで、dataProviderを用いている時にsetUpメソッドで現在時刻を固定したのに処理がうまくいかなかった時の対処法です。
