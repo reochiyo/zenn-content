@@ -4,6 +4,7 @@ emoji: "🤖"
 type: "tech" # tech: 技術記事 / idea: アイデア
 topics: ["googlecloud", "githubactions", "cicd"]
 published: true
+publication_name: "team_delta"
 ---
 ## はじめに
 従来はローカル環境からCloud Runへのデプロイを行っていました（このプロセス自体は比較的容易）が、やっぱりコミットプッシュしたら自動でデプロイして欲しいなーと思い、備忘録としてその方法を記述して行きます。
